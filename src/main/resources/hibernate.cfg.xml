@@ -2,7 +2,6 @@
 
     <session-factory>
 
-
         <!-- Database connection settings -->
         <property name="hibernate.connection.driver_class">
             com.mysql.cj.jdbc.Driver
@@ -26,10 +25,19 @@
         </property>
 
         <property name="hibernate.show_sql">true</property>
-
         <property name="hibernate.format_sql">true</property>
-
         <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Level 2 Cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+
+        <property name="hibernate.cache.region.factory_class">
+            org.hibernate.cache.jcache.JCacheRegionFactory
+        </property>
+
+        <property name="hibernate.jakarta.cache.provider">
+            org.ehcache.jsr107.EhcacheCachingProvider
+        </property>
 
         <!-- Entity mapping -->
         <mapping class="com.isha.model.StudentDetail"/>
