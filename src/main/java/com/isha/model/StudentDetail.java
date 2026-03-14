@@ -1,12 +1,13 @@
 package com.isha.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="StudentDetail")
+@Cacheable // level 2 cache
+@Cache(usage= CacheConcurrencyStrategy.READ_ONLY) // read only cuz need cache for data reading purpose
 public class StudentDetail
 {
     @Id
